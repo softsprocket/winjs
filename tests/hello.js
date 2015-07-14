@@ -26,5 +26,17 @@ console.log (y);
 
 console.log (os.cwd ());
 os.cd ('..\\');
-console.log(os.cwd());
+console.log (os.cwd());
+
+var strs = os.ls ();
+
+for (var i in strs) {
+    console.log (strs[i]);
+}
+
+strs = os.ls ("..\\", '*.cs');
+
+for (var i in strs) {
+    console.log (strs[i]);
+}
 

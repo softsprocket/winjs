@@ -10,6 +10,8 @@ namespace WinJS {
             engine = new V8ScriptEngine (V8ScriptEngineFlags.EnableDebugging);
             engine.AddHostObject ("dotnet", new Microsoft.ClearScript.HostTypeCollection ("mscorlib", "System.Core")); 
             engine.AddHostType ("WinJS_KeyUtil", typeof (KeyUtil));
+            engine.AddHostType ("WinJS_FileUtils", typeof (FileUtils));
+            engine.AddHostObject ("WinJS_host", new Microsoft.ClearScript.HostFunctions ());
         }
 
         public void execute (string script) {
