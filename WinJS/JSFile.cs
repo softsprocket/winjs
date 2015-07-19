@@ -64,10 +64,14 @@ namespace WinJS {
 
                         foreach (var n in names) {
                             var name = n.Trim ();
+                            name = name.Replace ("\"", "");
+                            name = name.Replace ("'", "");
+
                             if (!name.EndsWith (@".js")) {
                                 name += @".js";
                             }
-                            name = name.Replace ('/', '\\');                            
+                            name = name.Replace ('/', '\\');
+                            
                             contents = contents.Remove (match.Index, match.Length);
                             contents = contents.Insert (match.Index, this.loadFile (name));
                         }

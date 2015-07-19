@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WinJS;
+using System.Collections;
 
 namespace WinJSExe {
     enum ExitCodes : int {
@@ -16,12 +17,13 @@ namespace WinJSExe {
     class Program {
         public string configLocation;
         public string applicationName;
+        public ArrayList applicationArgs = new ArrayList ();
 
         void usage (ExitCodes res = ExitCodes.Success) {
             Console.WriteLine ("Usage: [-c|--config] [-h|--help] <path/to/winjs/home> fileToExecute");
             Console.WriteLine (
                 @"If the environment variable WINJSHOME is not set then -c 
-                and the fullpath to the location of the winjs configuaration
+                and the fullpath to the location of the winjs configuration
                 file is required."
             );
 
@@ -54,9 +56,11 @@ namespace WinJSExe {
                             break;
                     }
                 } else {
-                    applicationName = arg;
+                    applicationArgs.Add (arg);
                 }
             }
+
+            applicationName = (string) applicationArgs[0];
 
         }
 
@@ -83,6 +87,7 @@ namespace WinJSExe {
 
             var script = lib + app;
             Engine engine = new Engine ();
+            engine.addArgumentObject (prog.applicationArgs.ToArray ());
 
             try { 
                 engine.execute (script);

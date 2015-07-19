@@ -24,9 +24,12 @@ console.log (s);
 var y = console.readline ();
 console.log (y);
 
+var cwd = os.cwd ();
 console.log (os.cwd ());
 os.cd ('..\\');
 console.log (os.cwd());
+
+os.cd (cwd);
 
 var strs = os.ls ();
 

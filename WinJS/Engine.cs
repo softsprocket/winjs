@@ -14,6 +14,10 @@ namespace WinJS {
             engine.AddHostObject ("WinJS_host", new Microsoft.ClearScript.HostFunctions ());
         }
 
+        public void addArgumentObject (object [] args) {
+            engine.AddHostObject ("WinJS_Arguments", args);
+        }
+
         public void execute (string script) {
             engine.Execute (script);
         }

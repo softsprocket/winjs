@@ -7,4 +7,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartArguments>-c D:\development\csharp\WinJS tests\hello.js</StartArguments>
   </PropertyGroup>
+  <PropertyGroup>
+    <PublishUrlHistory>ftp://031a21d.netsolhost.com/softsprocket/winjs/</PublishUrlHistory>
+    <InstallUrlHistory>http://softsprocket.com/winjs/|http://softsprocket.com/winjs/WinJSExe/</InstallUrlHistory>
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
 </Project>
